@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rest server</title>
+
+    <!-- <script src="asset/bootstrap/js/bootstrap.min.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" href="asset/bootstrap/css/bootstrap.min.css"> -->
+    <script src="asset/jquery-3.4.1.min.js"></script>
+   <script src="asset/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="asset/bootstrap/css/bootstrap.min.css">
+    
+</head>
+<body>
+	
+	
+
+    <div class="container text-center pt-5 mt-5">
+    <button class="btn btn-primary shadow" onclick="statusPompa('LOW')">NYALA</button>
+    <button class="btn btn-primary shadow" onclick="statusPompa('HIGH')">MATI</button>
+    <div class="border border-dark mt-5 shadow bg-light"><h2 id="respon">status</h2></div>
+</div>
+	<script type="text/javascript">
+		
+
+function statusPompa(status){
+
+    let update={
+    "id" : "60",
+    "name" : "LOW",
+    "price" : "255",
+    "description" : "The best pillow for amazing programmers.",
+    "category_id" : 2,
+    "created" : "2018-08-01 00:35:07"
+}
+
+    update.name = status;
+
+
+    $.ajax({
+
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            url: "http://ec2-18-208-181-162.compute-1.amazonaws.com/restapi8/api/product/update.php",
+            data: JSON.stringify(update),
+            dataType: "json",
+            success: function (data) {
+                document.getElementById('respon').innerHTML='Berhasil : <span class="text-success">'+status+'</span> :)';
+                //alert(JSON.stringify(data));
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+
+
+
+}
+
+
+
+let data= {
+    "name" : "akhirnya",
+    "price" : "199",
+    "description" : "The best pillow for amazing programmers.",
+    "category_id" : 2,
+    "created" : "2018-06-01 00:35:07"
+}
+
+
+
+	</script>
+
+</body>
+</html>
