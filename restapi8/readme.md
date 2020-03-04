@@ -1,4 +1,4 @@
-# Full tutorial is here https://www.codeofaninja.com/2017/02/create-simple-rest-api-in-php.html
+# Code ini diambil dari : https://www.codeofaninja.com/2017/02/create-simple-rest-api-in-php.html
 
 # MYSQL DB table categories and products
 
